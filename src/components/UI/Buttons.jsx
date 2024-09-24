@@ -3,7 +3,7 @@ import React from "react";
 const Buttons = ({ label, iconURL, className }) => {
 	return (
 		<button
-			className={`flex justify-center items-center gap-2 px-7 py-4 font-montserrat text-lg leading-none bg-coral-red rounded-full border-coral-red ${className}`}
+			className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none bg-coral-red text-white border-coral-red rounded-full ${className}`}
 		>
 			{label}
 			{iconURL && (
