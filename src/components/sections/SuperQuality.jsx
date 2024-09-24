@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Buttons from "../UI/Buttons";
 import { shoe8 } from "../../assets/images";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const SuperQuality = () => {
+	useEffect(() => {
+		AOS.init({
+			duration: 900, // Duration of animations in milliseconds
+			offset: 100,
+			easing: "ease-in-out", // Easing function
+			once: false,
+		});
+	}, []);
 	return (
 		<section
 			id="about-us"
 			className="flex justify-between items-center max-lg:flex-col gap-10 w-full max-container"
 		>
-			<div className="flex flex-1 flex-col">
+			<div className="flex flex-1 flex-col" data-aos="fade-right">
 				<h2 className="font-palanquin text-4xl capitalize font-bold lg:max-w-sm">
 					We Provide You
 					<span className="text-coral-red"> Super Quality</span> Shoes
@@ -30,7 +40,10 @@ const SuperQuality = () => {
 				</div>
 			</div>
 
-			<div className="flex-1 flex justify-center items-center">
+			<div
+				className="flex-1 flex justify-center items-center"
+				data-aos="fade-left"
+			>
 				<img
 					src={shoe8}
 					alt="super shoe"

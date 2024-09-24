@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { offer } from "../../assets/images";
 import Buttons from "../UI/Buttons";
 import { arrowRight } from "../../assets/icons";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const SpecialOffer = () => {
+	useEffect(() => {
+		AOS.init({
+			duration: 900, // Duration of animations in milliseconds
+			offset: 100,
+			once: false,
+		});
+	}, []);
+
 	return (
 		<section className="flex justify-wrap items-center max-xl:flex-col-reverse gap-10 max-container">
-			<div>
+			<div data-aos="fade-left">
 				<img
 					src={offer}
 					width={773}
@@ -16,11 +26,14 @@ const SpecialOffer = () => {
 			</div>
 
 			<div className="flex flex-1 flex-col">
-				<h2 className="font-palanquin text-4xl capitalize font-bold lg:max-w-sm">
+				<h2
+					className="font-palanquin text-4xl capitalize font-bold lg:max-w-sm"
+					data-aos="flip-up"
+				>
 					<span className="text-coral-red"> Special </span> Offer
 				</h2>
 
-				<p className="mt-4 lg:max-w-lg info-text">
+				<p className="mt-4 lg:max-w-lg info-text" data-aos="fade-right">
 					Embark on a shopping journey that redefines your experience
 					with unbeatable deals. From premier selections to incredible
 					savings, we offer unparalleled value that sets us apart.
@@ -31,12 +44,12 @@ const SpecialOffer = () => {
 					journey with us is nothing short of exceptional.
 				</p>
 
-				<div className="mt-11 flex flex-wrap gap-5">
+				<div className="mt-11 flex flex-wrap gap-5" data-aos="fade-up">
 					<Buttons label="Shop Now" iconURL={arrowRight} />
 
 					<Buttons
 						label="Learn more"
-						className="bg-white border border-slate-gray text-slate-600"
+						className="bg-white border border-slate-gray text-gray-600"
 					/>
 				</div>
 			</div>

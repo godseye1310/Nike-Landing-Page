@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { headerLogo } from "../../assets/images/index";
 import { hamburger } from "../../assets/icons/index";
 import { navLinks } from "../../constants/index";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Nav = () => {
+	useEffect(() => {
+		AOS.init({
+			duration: 900, // Duration of animations in milliseconds
+			offset: 100,
+			easing: "ease-in-out", // Easing function
+			once: false,
+		});
+	}, []);
+
 	return (
 		<header className="padding-x py-8 absolute z-10 w-full">
-			<nav className="flex justify-between items-center max-container">
+			<nav
+				className="flex justify-between items-center max-container"
+				data-aos="fade-down"
+			>
 				<a href="/">
 					<img src={headerLogo} alt="Logo" width={130} height={30} />
 				</a>

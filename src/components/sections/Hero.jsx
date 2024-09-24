@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Buttons from "../UI/Buttons";
 import { arrowRight } from "../../assets/icons";
 import { shoes, statistics } from "../../constants";
 import { bigShoe1 } from "../../assets/images";
 import ShoeCard from "../UI/ShoeCard";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Hero = () => {
 	const [bigShoeImg, setBigShoeImg] = useState(bigShoe1);
+
+	useEffect(() => {
+		AOS.init({
+			duration: 900, // Duration of animations in milliseconds
+			offset: 100,
+			easing: "ease-in-out", // Easing function
+			once: false,
+		});
+	}, []);
 
 	return (
 		<section
@@ -14,11 +25,17 @@ const Hero = () => {
 			className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 max-container"
 		>
 			<div className="relative xl:w-2/5 flex flex-col justify-center items-start w-full  max-xl:padding-x pt-28">
-				<p className="text-xl font-montserrat text-coral-red">
+				<p
+					className="text-xl font-montserrat text-coral-red"
+					data-aos="fade-right"
+				>
 					Our Summer collections
 				</p>
 
-				<h1 className="mt-10 font-palanquin text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold">
+				<h1
+					className="mt-10 font-palanquin text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold z-20"
+					data-aos="fade-right"
+				>
 					<span className="xl:bg-white xl:whitespace-nowrap relative z-10 pr-10">
 						The New Arrival
 					</span>
@@ -28,14 +45,22 @@ const Hero = () => {
 					</span>{" "}
 					Shoes
 				</h1>
-				<p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm">
+				<p
+					className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm"
+					data-aos="fade-right"
+				>
 					Discover stylish Nike arrivals, quality comfort, and
 					innovation for your active life.
 				</p>
 
-				<Buttons label="Shop now" iconURL={arrowRight} />
+				<div data-aos="fade-right">
+					<Buttons label="Shop now" iconURL={arrowRight} />
+				</div>
 
-				<div className="flex justify-start items-start flex-wrap w-full mt-20 gap-16">
+				<div
+					className="flex justify-start items-start flex-wrap w-full mt-20 gap-16"
+					data-aos="fade-up"
+				>
 					{statistics.map((stat, index) => (
 						<div key={index}>
 							<p className="text-4xl font-palanquin font-bold">
@@ -49,7 +74,10 @@ const Hero = () => {
 				</div>
 			</div>
 
-			<div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center">
+			<div
+				className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center"
+				data-aos="fade-left"
+			>
 				<img
 					src={bigShoeImg}
 					alt="shoe colletion"
