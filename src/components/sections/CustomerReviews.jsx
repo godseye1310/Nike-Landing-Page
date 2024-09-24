@@ -9,6 +9,7 @@ const CustomerReviews = () => {
 		AOS.init({
 			duration: 900, // Duration of animations in milliseconds
 			offset: 100,
+			easing: "ease-in-out",
 			once: false,
 		});
 	}, []);
